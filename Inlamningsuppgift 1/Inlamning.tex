@@ -149,6 +149,8 @@ komponenterna i egenvektorerna.
 
 \section*{1.2}
 
+\emph{Jag körde beräkningarna i \textsc{Matlab}/\textsc{Maple} på 3 olika datorer och fick olika resultat varje gång (dubbelkollade så att matriserna stämde överens).}
+
 \subsection*{a)}
 
 En \textsc{Matlab}-utskrift för egenvärdena till matrisen $\mat{B}$ som ges enligt
@@ -171,7 +173,7 @@ med blå text)
 \FloatBarrier
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\linewidth]{figurer/maple_1_2_a1.png}
+  \includegraphics[width=1.2\linewidth]{figurer/maple_1_2_a1.png}
   %\caption{}
 \end{figure}
 \FloatBarrier
@@ -183,10 +185,12 @@ determinanten beräknas för att avgöra om egenvektornerna som \textsc{Maple} g
 \FloatBarrier
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\linewidth]{figurer/maple_1_2_a2.png}
+  \includegraphics[width=1.2\linewidth]{figurer/maple_1_2_a2.png}
   %\caption{}
 \end{figure}
 \FloatBarrier
+
+\noindent Determinanten blir här mycket nära noll
 
 \noindent Eftersom  determinanten är skild från noll är de 5 egenvektornerna linjärt
 oberoende, vilket medför att matrisen $\mat{B}$ är diagonaliserbar enligt sats 3.6.
@@ -221,7 +225,7 @@ rosser-matrisen är 1000 ett dubbelt egenvärde, vilket medför att matrisen int
 \FloatBarrier
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\linewidth]{figurer/maple_1_2_b.png}
+  \includegraphics[width=1.2\linewidth]{figurer/maple_1_2_b.png}
   %\caption{}
 \end{figure}
 \FloatBarrier
@@ -379,7 +383,7 @@ På samma sätt som i förra uppgiften ger $k = \frac 12$ egenvärdena $\lambda_
 
 \noindent För stora finns då 2 gånger så många vuxna som kycklingar.
 
-\subsection{c)}
+\subsection*{c)}
 
 Här ger $k = 2$ egenvärdena $\lambda_1 = 1.6$ och $\lambda_2 = -1$. Eftersom
 $\lambda_1 > 0$ så växer populationen obegränsat (sats 4.2). Egenvektorn för
@@ -418,6 +422,7 @@ $\lambda_1$ blir
 \noindent Det kommer då finnas $\frac 54 = 1.25$ kycklingar för varje vuxen.
 
 \section*{1.5}
+\subsection*{a)}
 
 Enligt uppgiften skall $e^{\mat{A}t}$ beräknas för
 
@@ -447,6 +452,40 @@ Enligt uppgiften skall $e^{\mat{A}t}$ beräknas för
 \end{align*}
 
 \subsection*{b)}
+
+Uppgiften ger
+
+\begin{equation*}
+\mat{A} = \begin{bmatrix} 6 & -4\\9 & -6\end{bmatrix}.
+\end{equation*}
+
+\noindent Enligt Definition 5.3 kan exponentialmatrisen för $\mat{A}t$ skrivas som 
+
+\begin{equation*}
+	e^{\mat{A}} = \sum_{k=0}^{\infty}\frac{1}{k!}\mat{A}^kt^k,
+\end{equation*}
+
+\noindent men notera att 
+
+\begin{equation*}
+	\mat{A}^2 = \begin{bmatrix} 6 & -4\\9 & -6\end{bmatrix}\begin{bmatrix} 6 & -4\\9 & -6\end{bmatrix} = \begin{bmatrix} 0 & 0\\0 & 0\end{bmatrix}.
+\end{equation*}
+
+\noindent $\mat{A}^k = 0$ då $k \geq 2$, vilket ger att $e^{\mat{A}t}$ kan skrivas som
+
+\begin{equation*}
+	e^{\mat{A}} = \sum_{k=0}^{\infty}\frac{1}{k!}\mat{A}^kt^k = \mat{I} + \mat{A}t + 0.
+\end{equation*}
+
+\noindent Egenvärdena beräknas sedan för att avgöra diagonaliserbarhet
+
+\begin{align*}
+	p_A(\lambda) &= (6-\lambda)(-6-\lambda) + 36 = 0\\
+				&\iff \lambda_{1,2} = 0,
+\end{align*}
+
+\noindent Eftersom egevärdena är lika och $\mat{A}$ är en $2\times 2$ matris så är inte $\mat{A}$ diagonaliserbar enligt sats 3.9.
+
 
 \section*{1.6}
 
