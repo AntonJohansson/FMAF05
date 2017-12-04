@@ -37,16 +37,16 @@
     \end{cases}
 \end{equation*}
 Om uttrycket för $x_1(t)$ och $x_2(t)$ båda förkortas med $e^{3t}$ fås
-\begin{equation*}
+\begin{equation}
   \begin{cases}
     x_1(t) = 6c_1 + 6c_2e^{-t}\\
     x_2(t) = 8c_1 + 9c_2e^{-t}
 \end{cases}\label{eq:11c_1}
-\end{equation*}
-Då $t\to\infty$ går \eqref{eq:11c_1} mot
+\end{equation}
+Då $t\to\infty$ går (\ref{eq:11c_1}) mot
 \begin{equation*}
   \begin{cases}
-    x_1(t) = 6c_1
+    x_1(t) = 6c_1\\
     x_2(t) = 8c_1
 \end{cases}
 \end{equation*}
@@ -74,7 +74,7 @@ sats 4.6 den stataionära lösningen till systemet
 \begin{align*}
   \vec{x_P}(t) &= ((-i)\mat{I} - \mat{A})^{-1}\begin{bmatrix}3\\4\end{bmatrix}e^{-it} = \begin{bmatrix}11-i & -6\\12 & -6-i\end{bmatrix}^{-1}\begin{bmatrix}3\\4\end{bmatrix}e^{-it}\\[2ex]
   &= \frac{1}{5-5i}\begin{bmatrix}-6-i & 6\\ -12& 11 - i\end{bmatrix}\begin{bmatrix}3\\4\end{bmatrix}e^{-it}\\[2ex]
-  &= \frac{1}{5-5i}\begin{bmatrix}6-3i\\8-4i\end{bmatrix}e^{-it}
+  &= \frac{1}{5-5i}\begin{bmatrix}6-3i\\8-4i\end{bmatrix}e^{-it}\\
   &= \begin{bmatrix}0.9+0.3i\\1.2 + 0.4i\end{bmatrix}
 \end{align*}
 
