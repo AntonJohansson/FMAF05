@@ -1,0 +1,209 @@
+\documentclass[a4paper]{article}
+
+\usepackage[swedish]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{gauss}
+\usepackage{placeins} %FloatBarrier
+
+\newcommand{\mat}[1]{\bm{\mathit{#1}}}
+
+\newcommand{\mline}{%
+  \hspace{-\arraycolsep}%
+  \strut\vrule
+  \hspace{-\arraycolsep}%
+}
+
+\title{Komplettering}
+
+\begin{document}
+
+\maketitle
+
+\section*{1.1}
+\subsection*{c)}
+
+\begin{equation*}
+  \vec{x} = c_1e^{3t}\begin{bmatrix}6\\8\end{bmatrix} + c_2e^{2t}\begin{bmatrix}6\\9\end{bmatrix}
+  \iff \begin{cases}
+    x_1(t) = 6c_1e^{3t} + 6c_2e^{2t}\\
+    x_2(t) = 8c_1e^{3t} + 9c_2e^{2t}
+    \end{cases}
+\end{equation*}
+Om uttrycket för $x_1(t)$ och $x_2(t)$ båda förkortas med $e^{3t}$ fås
+\begin{equation*}
+  \begin{cases}
+    x_1(t) = 6c_1 + 6c_2e^{-t}\\
+    x_2(t) = 8c_1 + 9c_2e^{-t}
+\end{cases}\label{eq:11c_1}
+\end{equation*}
+Då $t\to\infty$ går \eqref{eq:11c_1} mot
+\begin{equation*}
+  \begin{cases}
+    x_1(t) = 6c_1
+    x_2(t) = 8c_1
+\end{cases}
+\end{equation*}
+Kvoten $x_1(t)$/$x_2(t)$ blir därmed $\frac 34$ (för stora $t$). Denna kvot återfinns även som förhållandet mellan komponenterna i egenvektorn $s_1$.
+
+\section*{1.3}
+\subsection*{a)}
+
+Enligt uppgiften gäller
+
+\begin{equation*}
+  \frac{\text{d}\vec{x}}{\text{d}t} = \mat{A}\vec{x} + \vec{f}(t), \quad \mat{A} = \begin{bmatrix}-11 & 6\\-12 & 6\end{bmatrix}, \vec{f}(t) = \begin{bmatrix}3\\4\end{bmatrix}e^{-it},
+\end{equation*}
+
+\noindent Notera att systemmatrisen $\mat{A}$ är den negativa systemmatrisen
+från uppgift 1.1 a), egenvektorerna fås därmed som
+
+\begin{equation*}
+  \lambda = \begin{cases}-3\\-2\end{cases}
+\end{equation*}
+
+\noindent Eftersom egenvektorerna skiljer sig från insignalens frekvens så ger
+sats 4.6 den stataionära lösningen till systemet
+
+\begin{align*}
+  \vec{x_P}(t) &= ((-i)\mat{I} - \mat{A})^{-1}\begin{bmatrix}3\\4\end{bmatrix}e^{-it} = \begin{bmatrix}11-i & -6\\12 & -6-i\end{bmatrix}^{-1}\begin{bmatrix}3\\4\end{bmatrix}e^{-it}\\[2ex]
+  &= \frac{1}{5-5i}\begin{bmatrix}-6-i & 6\\ -12& 11 - i\end{bmatrix}\begin{bmatrix}3\\4\end{bmatrix}e^{-it}\\[2ex]
+  &= \frac{1}{5-5i}\begin{bmatrix}6-3i\\8-4i\end{bmatrix}e^{-it}
+  &= \begin{bmatrix}0.9+0.3i\\1.2 + 0.4i\end{bmatrix}
+\end{align*}
+
+\section*{1.4}
+
+Det tidsdiskreta systemet för fågelpopulationen över tid ges som
+\begin{equation*}
+  \begin{cases}
+    x_{n+1} = 0x_n + ky_n\\
+    y_{n+1} = 0.8x_n + 0.6y_n
+  \end{cases}, n = 0, 1, 2, \ldots
+\end{equation*}
+Differensekationerna för $x$ och $y$ beskriver i detta fall
+derivatan av variablerna i diskreta tidsintervall på 1 år. Ur systemmatrisen
+\begin{equation*}
+  \mat{A} = \begin{bmatrix}0 & k \\ 0.8 & 0.6 \end{bmatrix}
+\end{equation*}
+fås egenvärdena som nollställena till det karekteristiska polynomet
+(enligt sats 3.3)
+
+\begin{align*}
+  p_A(\lambda) &= (0-\lambda)(0.6 - \lambda) - 0.8k = 0 \iff \lambda^2 - 0.6\lambda - 0.8k = 0\\
+               &\iff (\lambda - 0.3)^2 - 0.09 + 0.8k = 0\\
+               &\iff \lambda = 0.3 \pm \sqrt{0.09 + 0.8k}.
+\end{align*}
+
+Enligt uppgiften är begynnelsetiståndet
+\begin{equation*}
+\begin{bmatrix}x_0\\y_0\end{bmatrix} = c_1\vec{s_1} + c_2\vec{s_2},\quad c_{1,2} \neq 0,
+\end{equation*}
+där $s_{1,2}$ är egenvektorerna till systemmatrisen $\mat{A}$.
+
+Eftersom varje år motsvaras av att multiplicera det föregående årets populationstillstånd med systemmatrisen $\mat{A}$, ges fågelpopulationen år $n$ av
+\begin{equation*}
+\begin{bmatrix}x_n\\y_n\end{bmatrix} = \mat{A}^n\begin{bmatrix}x_0\\y_0\end{bmatrix}, = c_1\mat{A}^n\vec{s_1} + c_2\mat{A}^n\vec{s_2}
+\end{equation*}
+men eftersom $s_{1,2}$ är egenvektorer till $\mat{A}$ kan transformationen $\mat{A}^ns_{1,2}$ även skrivas som $\lambda_{1,2}^ns_{1,2}$ enligt defintionen av egenvektorer och egenvärden, d.v.s
+\begin{equation}
+\begin{bmatrix}x_n\\y_n\end{bmatrix} =  c_1\lambda_1^n\vec{s_1} + c_2\lambda_2\vec{s_2}\label{eq:14_key}
+\end{equation}
+
+\subsection*{a)}
+
+$k = \frac 15$ ger egenvärdena $\lambda_1 = 0.8$ och $\lambda_2 = -0.2$. Eftersom $|\lambda_{1,2}| < 1$ ger ekvation (\ref{eq:14_key}) att fågelpopulationens storlek går mot noll oavsett värdena på egenvektorerna av $\mat{A}$.
+
+\subsection*{b)}
+
+På samma sätt som i förra uppgiften ger $k = \frac 12$ egenvärdena $\lambda_1 =
+1$ och $\lambda_2 = -0.4$. Eftersom $|\lambda_2| < 1$ kommer termen $c_2\lambda_2^n\vec{s_2} \to 0, n \to \infty$ (i ekv. (\ref{eq:14_key})). Därmed behöver enbart egenvektorn för $\lambda_1$ bestämmas
+\begin{align*}
+  (\mat{A} - \lambda_1\mat{I})\vec{s_1} = 0 &\Rightarrow
+  \begin{gmatrix}[p]
+    -1 & 0.5 & \mline & 0\\
+    0.8 & -0.4 & \mline & 0
+    \rowops
+    \add[0.8]{0}{1}
+  \end{gmatrix}
+  \Rightarrow
+  \begin{gmatrix}[p]
+    -1 & 0.5 & \mline & 0\\
+    0 & 1 & \mline & t
+    \rowops
+    \add[-0.5]{1}{0}
+  \end{gmatrix}\\
+  &\Rightarrow
+  \begin{gmatrix}[p]
+    -1 & 0 & \mline & -0.5t\\
+    0 & 1 & \mline & t
+  \end{gmatrix}\\
+  &\Rightarrow \vec{s_1} = t_1\begin{bmatrix}1\\2\end{bmatrix}
+\end{align*}
+Slutligen ger ekvation (\ref{eq:14_key}) att
+\begin{equation*}
+\begin{bmatrix}x_n\\y_n\end{bmatrix} =c_1 1^n\begin{bmatrix}1\\2\end{bmatrix} + c_2\lambda_2\vec{s_2}
+\end{equation*}
+Populationen kommer efter en tid att stabiliseras vid $x = c_1$, $y = 2c_1$, d.v.s. det finns dubbelt så många vuxna som kycklingar.
+
+\subsection*{c)}
+
+Här ger $k = 2$ egenvärdena $\lambda_1 = 1.6$ och $\lambda_2 = -1$. Först bestäms egenvektorn för $\lambda_1$
+\begin{align*}
+  (\mat{A} - \lambda_1\mat{I})\vec{s_1} = 0 &\Rightarrow
+  \begin{gmatrix}[p]
+    -1.6 & 2 & \mline & 0\\
+    0.8 & -1 & \mline & 0
+    \rowops
+    \add[0.5]{0}{1}
+  \end{gmatrix}
+  \Rightarrow
+  \begin{gmatrix}[p]
+    -1.6 & 2 & \mline & 0\\
+    0 & 1 & \mline & t
+    \rowops
+    \add[-2]{1}{0}
+  \end{gmatrix}\\
+  &\Rightarrow
+  \begin{gmatrix}[p]
+    -1.6 & 0 & \mline & -2t\\
+    0 & 1 & \mline & t
+  \end{gmatrix}\\
+  &\Rightarrow \vec{s_1} = t\begin{bmatrix}5\\4\end{bmatrix}.
+\end{align*}
+Därefter bestäms egenvektorn för $\lambda_2$
+\begin{align*}
+  (\mat{A} - \lambda_2\mat{I})\vec{s_2} = 0 &\Rightarrow
+  \begin{gmatrix}[p]
+    1 & 2 & \mline & 0\\
+    0.8 & 1.6 & \mline & 0
+    \rowops
+    \add[-0.8]{0}{1}
+  \end{gmatrix}
+  \Rightarrow
+  \begin{gmatrix}[p]
+    1 & 2 & \mline & 0\\
+    0 & 1 & \mline & t
+    \rowops
+    \add[-2]{1}{0}
+  \end{gmatrix}\\
+  &\Rightarrow
+  \begin{gmatrix}[p]
+    1 & 0 & \mline & -2t\\
+    0 & 1 & \mline & t
+  \end{gmatrix}\\
+  &\Rightarrow \vec{s_2} = t\begin{bmatrix}-2\\1\end{bmatrix}.
+\end{align*}
+Ekvation (\ref{eq:14_key}) ger tillsist lösningen
+\begin{equation*}
+\begin{bmatrix}x_n\\y_n\end{bmatrix} =c_1 1.6^n\begin{bmatrix}5\\4\end{bmatrix} + c_2(-1)^n\begin{bmatrix}-2\\1\end{bmatrix}
+\end{equation*}
+Den andra termen kommer variera mellan konstanta värden, medan den första termen växer obegränsad då $n\to\infty$. Alltså kommer populationen att växa obegränsat.
+
+\end{document}
